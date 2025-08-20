@@ -2,29 +2,29 @@
 # Email: 23f2000275@ds.study.iitm.ac.in
 
 # Cell 1: Import and define slider
+# Email: your.email@example.com
+
 import marimo
 
-__generated_with = "0.3.2"
 app = marimo.App()
 
-# Define slider for interactive control
-slider = app.slider(start=1, stop=10, value=5, label="Select a multiplier")
+# Cell 1: Create slider widget
+slider = app.slider(
+    label="Select a multiplier",
+    start=1,
+    stop=10,
+    value=5,
+)
 
-# Output the widget to the UI
+# Display the slider widget
 app.display(slider)
+# Cell 2: Use slider value to compute a result
 
-# Cell 2: Use slider value to calculate result
+# Data flow: this depends on slider's current value
+multiplier = slider.value
+result = multiplier * 3
 
-# Data flows from slider to result
-value = slider.value  # Dependency on slider from previous cell
-result = value * 3    # Simple computation
-
-# Comment: result is computed based on the slider
 result
+# Cell 3: Dynamic markdown output reacting to slider
 
-# Cell 3: Show dynamic markdown based on result
-
-# This markdown will update when the slider is changed
 app.markdown(f"### Multiplied value is **{result}**")
-
-# Comment: markdown reacts to changes in the slider -> result
